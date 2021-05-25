@@ -6,6 +6,7 @@ import stalls.IceCreamStall;
 import stalls.TobaccoStall;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ThemePark {
 
@@ -18,6 +19,8 @@ public class ThemePark {
 //          and adds the attraction to the visitors visitedAttractions list.
 
     private ArrayList<IReviewed> reviewedArray;
+    private HashMap<String, Integer> reviewsHashMap;
+
     private Dodgems dodgems;
     private Park park;
     private Playground playground;
@@ -29,6 +32,7 @@ public class ThemePark {
 
     public ThemePark() {
         reviewedArray = new ArrayList<>();
+        reviewsHashMap = new HashMap<>();
     }
 
 
@@ -56,4 +60,25 @@ public class ThemePark {
         attraction.increaseVisitCounter();
         visitor.addAttraction(attraction);
     }
+
+//    ThemePark has a method that can return a new HashMap<String, Integer> with all reviews.
+//    The HashMap will have a key of the name and value of review.
+
+    public void setReviews() {
+//        This method will loop through the arraylist of ireviewed, and add the properties to hashmap
+        // confusion over rating.. or visitor review..?
+
+        this.getAllReviewed(); // this is giving us a null problem when trying to do line 73
+        for(IReviewed review : reviewedArray){
+            reviewsHashMap.put(review.getName(), review.getRating());
+        }
+//        Debugger shows that the reviewedArray does have all 7 IReviewed objects, but they are all..null..
+//        Do we need to initialise all the attractions first in our test?
+    }
+
+    public int getReviewsCount() {
+        setReviews();
+        return reviewsHashMap.size();
+    }
+
 }

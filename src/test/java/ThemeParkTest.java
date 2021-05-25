@@ -5,6 +5,7 @@ import org.junit.Test;
 import people.Visitor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -29,14 +30,11 @@ public class ThemeParkTest {
         assertEquals(7, themePark.countReviewed());
     }
 
-    @Test
-    public void reviewedArrayListContainsOurObjects(){
-        themePark.getAllReviewed();
-    }
-
-//    ThemePark has a method visit(Visitor, Attraction) calls for the attraction to increment its visitCount by 1
-//    and adds the attraction to the visitors visitedAttractions list.
-//    Currently both tests are failing due to null object. The attraction object is null
+//    @Test
+//    public void reviewedArrayListContainsOurObjects(){
+////        Make a list of objects here to check they are added etc
+//        themePark.getAllReviewed();
+//    }
 
     @Test
     public void attractionVisitCountIncrementsBy1(){
@@ -48,5 +46,13 @@ public class ThemeParkTest {
     public void visitorAttractionsListSizeIncreasesByOne(){
         themePark.visit(visitor, attraction);
         assertEquals(1, visitor.getAttractionCount());
+    }
+
+    //    ThemePark has a method that can return a new HashMap<String, Integer> with all reviews.
+//    The HashMap will have a key of the name and value of review.
+
+    @Test
+    public void themeparkCanReturnReviewsHashMapCount(){
+        assertEquals(7, themePark.getReviewsCount());
     }
 }
