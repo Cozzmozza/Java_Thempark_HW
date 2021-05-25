@@ -44,4 +44,8 @@ public class Visitor {
     public ArrayList getAttractions(){
         return visitorAttractions;
     }
+
+    public int getAttractionCount(){
+        return visitorAttractions.size();
+    }
 }

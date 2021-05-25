@@ -1,8 +1,6 @@
-import attractions.Dodgems;
-import attractions.Park;
-import attractions.Playground;
-import attractions.RollerCoaster;
+import attractions.*;
 import behaviours.IReviewed;
+import people.Visitor;
 import stalls.CandyflossStall;
 import stalls.IceCreamStall;
 import stalls.TobaccoStall;
@@ -51,4 +49,11 @@ public class ThemePark {
     }
 
 
+//    ThemePark has a method visit(Visitor, Attraction) calls for the attraction to increment its visitCount by 1
+//    and adds the attraction to the visitors visitedAttractions list.
+
+    public void visit(Visitor visitor, Attraction attraction) {
+        attraction.increaseVisitCounter();
+        visitor.addAttraction(attraction);
+    }
 }

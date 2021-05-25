@@ -41,4 +41,10 @@ public class PlaygroundTest {
         visitor = new Visitor(16, 150, 20.00);
         assertEquals(false, playground.isAllowedTo(visitor));
     }
+
+    @Test
+    public void canIncreaseVisitCount(){
+        playground.increaseVisitCounter();
+        assertEquals(1, playground.getVisitCount());
+    }
 }
